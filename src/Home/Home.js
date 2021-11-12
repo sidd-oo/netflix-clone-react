@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/navbar/Navbar'
 import Featured from '../components/featured/Featured'
+import List from '../components/list/List';
 import './Home.scss'
 
 const Home = () => {
@@ -8,6 +9,10 @@ const Home = () => {
         <div className = "home">
             <Navbar/>
             <Featured type="movie"/>
+            <List/>
+            <List/>
+            <List/>
+            <List/>
         </div>
     )
 }
