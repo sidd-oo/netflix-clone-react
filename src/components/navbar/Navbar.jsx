@@ -11,8 +11,6 @@ const Navbar = () => {
         return () => (window.onscroll = null);
     }
 
-    let count = 1;
-    console.log(count);
 
     return (
         <div className = {isScrolled === false ? "navbar" : "navbar scrolled"}>

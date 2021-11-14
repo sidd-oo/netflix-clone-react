@@ -5,8 +5,7 @@ import { InfoOutlined } from '@mui/icons-material';
 
 const Featured = (props) => {
     return (
-        <div class = "featured">
-
+        <div className = "featured">
         { props.type && (
             <div className="category">
                 <span>{props.type === "movie" ? "Movies" : "Series"}</span>
