@@ -47,7 +47,7 @@ router.delete("/:id", verify , async (req, res) => {
 
 //GET
 
-router.get("find/:id", verify , async (req, res) => {
+router.get("/find/:id", verify , async (req, res) => {
         try {
             const user = await User.findById(req.params.id);
             const {password, ...info} = user._doc;
@@ -64,7 +64,6 @@ router.get("/", verify , async (req, res) => {
     if(req.user.isAdmin){
         try {
             const users = query ? await User.find().sort({_id:-1}).limit(10) : await User.find();
-            await User.findByIdAndDelete(req.params.id);
             res.status(200).json(users);
         } catch (err) {
             res.status(500).json(err);
