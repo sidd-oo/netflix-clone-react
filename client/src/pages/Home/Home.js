@@ -1,14 +1,15 @@
-import React from 'react'
-import Navbar from '../../components/navbar/Navbar'
-import Featured from '../../components/featured/Featured'
+import React from 'react';
+import Navbar from '../../components/navbar/Navbar';
+import Featured from '../../components/featured/Featured';
 import List from '../../components/list/List';
-import './Home.scss'
+import './Home.scss';
+import '../../App.scss';
 
-const Home = () => {
+const Home = ({type}) => {
     return (
         <div className = "home">
             <Navbar/>
-            <Featured type="movie"/>
+            <Featured type={type}/>
             <List/>
             <List/>
             <List/>
@@ -17,4 +18,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Home;
