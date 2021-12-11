@@ -13,29 +13,23 @@ const Home = ({type}) => {
     useEffect(() => {
        const getRandomLists = async () => {
             try{
-                const res = await fetch( `http://localhost:8800/api/lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,
-                {
-                    headers: {
-                            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYjA4YmEyOWM0MmE5ODYxNTNmNDczYyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzODk2NTczMCwiZXhwIjoxNjM5Mzk3NzMwfQ.IY5DuACyQVQKCk6sji9y74N3WQ9HzevcACZSEzqSZPk"
+                const res = await axios.get(
+                    `http://localhost:8800/api/lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,
+                    {
+                        headers: {
+                            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYjQ2MjUxMzhhNzIzZjc5ZGM4MThlYiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MzkyMzQwOTEsImV4cCI6MTYzOTY2NjA5MX0.7XoxSqvvVrFKqCyB9C59mD15jemJWBvjnssmoc5A5ag"
+                        },
                     }
-                });
-
-                // const res = await axios.get(
-                //     `http://localhost:8800/api/lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,
-                //     {
-                //         headers: {
-                //             token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYjA4YmEyOWM0MmE5ODYxNTNmNDczYyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzODk2NTczMCwiZXhwIjoxNjM5Mzk3NzMwfQ.IY5DuACyQVQKCk6sji9y74N3WQ9HzevcACZSEzqSZPk"
-                //         },
-                //     }
-                // );
-                console.log(res);
-                // setLists(res.data);
+                );
+                console.log(res.data);
+                setLists(res.data);
             }catch(err){
                 console.log(err);
             }
        };
        getRandomLists();
     },[type, genre]);
+
     return (
         <div className = "home">
             <Navbar/>
