@@ -21,7 +21,6 @@ const Home = ({type}) => {
                         },
                     }
                 );
-                console.log(res.data);
                 setLists(res.data);
             }catch(err){
                 console.log(err);
@@ -34,12 +33,12 @@ const Home = ({type}) => {
         <div className = "home">
             <Navbar/>
             <Featured type={type}/>
-            <List/>
-            <List/>
-            <List/>
-            <List/>
+            
+            {lists.map((list) => {
+                return <List list = {list} key = {list._id}/>
+            })}
         </div>
     )
 }
 
-export default Home;
+export default Home; 
