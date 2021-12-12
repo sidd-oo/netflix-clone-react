@@ -36,7 +36,7 @@ const List = ({list}) => {
                 <div className="container" ref = {listRef}>
                     {
                         list.content.map((item, i) => {
-                            return <ListItem type = {item} index = {i} key = {i}/>
+                            return <ListItem item = {item} index = {i} key = {i}/>
                         })
                     }
                 </div>
