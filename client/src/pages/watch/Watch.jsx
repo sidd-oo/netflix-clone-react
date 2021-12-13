@@ -1,8 +1,13 @@
 import React from 'react'
 import './Watch.scss'
 import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
+import { useLocation } from 'react-router-dom'; 
 
 const Watch = () => {
+    const location = useLocation();
+    console.log(location);
+    const movie = location.state;
+    console.log(movie);
     return (
         <div className = "watch">
             <div className="back">
@@ -11,9 +16,9 @@ const Watch = () => {
             </div> 
             <video 
                 className = "video"
-                src="https://www.pexels.com/video/teenage-girl-carrying-a-basket-of-lavender-5126324/"
+                src= {movie.trailer}
                 autoPlay 
-                progress
+                progress ="true"
                 controls
             ></video>
         </div>
