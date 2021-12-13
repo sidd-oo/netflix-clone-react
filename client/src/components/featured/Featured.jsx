@@ -1,14 +1,37 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './Featured.scss'
 import PlayCircleFilledWhiteOutlinedIcon from '@mui/icons-material/PlayCircleFilledWhiteOutlined';
 import { InfoOutlined } from '@mui/icons-material';
+import axios from 'axios';
 
-const Featured = (props) => {
+const Featured = ({type}) => {
+    const [content, setContent] = useState({});
+
+    useEffect(()=>{
+        const getRandomContent = async () => { 
+            try{
+                const res = await axios.get(`http://localhost:8800/api/movies/random?type=${type}`,
+                    {
+                        headers: {
+                            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYjQ2MjUxMzhhNzIzZjc5ZGM4MThlYiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MzkyMzQwOTEsImV4cCI6MTYzOTY2NjA5MX0.7XoxSqvvVrFKqCyB9C59mD15jemJWBvjnssmoc5A5ag"
+                        },
+                    }
+                );
+                setContent((content) => {
+                    return content = res.data[0]
+                });
+            }catch(err){
+                console.log(err);
+            }
+        }
+        getRandomContent();
+    },[type])
+
     return (
         <div className = "featured">
-        { props.type && (
+        { type && (
             <div className="category">
-                <span>{props.type === "movies" ? "Movies" : "Series"}</span>
+                <span>{type === "movies" ? "Movies" : "Series"}</span>
                 <select name="genre" id="genre">
                     <option>Genre</option>
                     <option value="adventure">Adventure</option>
@@ -28,17 +51,17 @@ const Featured = (props) => {
             </div>
         )}
            <img
-                src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                src={content.img}
                 alt=""
                 width= "100%"
             /> 
             <div className="info">
                 <img
-                    src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABUZdeG1DrMstq-YKHZ-dA-cx2uQN_YbCYx7RABDk0y7F8ZK6nzgCz4bp5qJVgMizPbVpIvXrd4xMBQAuNe0xmuW2WjoeGMDn1cFO.webp?r=df1"
+                    src={content.imgTitle}
                     alt=""
                 />
                 <span className="desc">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit cupiditate quae ipsam tempore intle aliquam inventore ducimus mollitia quasi, enim voluptatem natus, nequet aperiam bonpae consectetur excepturi rerum ullam vitae eaque vague nimessel.
+                    {content.desc}
                 </span>
                 <div className="buttons">
                     <button className="play">

@@ -28,7 +28,6 @@ const ListItem = ({item, index}) => {
             }
         }
         getMovie();
-        console.log(movie);
     }, [item]);
 
     return (
