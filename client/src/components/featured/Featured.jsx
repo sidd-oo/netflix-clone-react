@@ -11,11 +11,11 @@ const Featured = ({ type }) => {
     const getRandomContent = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8800/api/movies/random?type=${type}`,
+          `http://172.18.250.193:8800/api/movies/random?type=${type}`,
           {
             headers: {
               token:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYjQ2MjUxMzhhNzIzZjc5ZGM4MThlYiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MzkyMzQwOTEsImV4cCI6MTYzOTY2NjA5MX0.7XoxSqvvVrFKqCyB9C59mD15jemJWBvjnssmoc5A5ag",
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYzJmYjU4YjhhZTBjZDJjNjE4Yzc0OCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDAxNjg1NDUsImV4cCI6MTY0MDYwMDU0NX0.LfHGvOB_tLad_UGPoYci1foklfvHkHMNHM2TT-K140s",
             },
           }
         );

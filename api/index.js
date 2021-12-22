@@ -24,5 +24,5 @@ app.use("/api/movies", movieRoute);
 app.use("/api/lists", listRoute);
 
 app.listen(8800, () => {
-  console.log("Backend server is running...");
+  console.log("Backend server is running on port 8800...");
 });
