@@ -11,7 +11,7 @@ const Featured = ({ type }) => {
     const getRandomContent = async () => {
       try {
         const res = await axios.get(
-          `http://172.18.250.193:8800/api/movies/random?type=${type}`,
+          `http://localhost:8800/api/movies/random?type=${type}`,
           {
             headers: {
               token:

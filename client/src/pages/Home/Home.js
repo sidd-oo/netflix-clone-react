@@ -14,7 +14,7 @@ const Home = ({ type }) => {
     const getRandomLists = async () => {
       try {
         const res = await axios.get(
-          `http://172.18.250.193:8800/api/lists${type ? "?type=" + type : ""}${
+          `http://localhost:8800/api/lists${type ? "?type=" + type : ""}${
             genre ? "&genre=" + genre : ""
           }`,
           {

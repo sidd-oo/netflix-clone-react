@@ -15,7 +15,7 @@ const ListItem = ({ item, index }) => {
     const getMovie = async () => {
       try {
         const res = await axios.get(
-          `http://172.18.250.193:8800/api/movies/find/${item}`,
+          `http://localhost:8800/api/movies/find/${item}`,
           {
             headers: {
               token:
