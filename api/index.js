@@ -16,6 +16,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use(cors({ orgin: "http://localhost:3000" }));
+app.use(cors({ orgin: "http://localhost:4000" }));
 app.use(express.json());
 
 app.use("/api/auth", authRoute);
