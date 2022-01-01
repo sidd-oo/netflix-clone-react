@@ -5,14 +5,17 @@ import "./WidgetSm.css";
 
 const WidgetSm = () => {
   const [newUsers, setNewUsers] = useState([]);
-
+  
+  
   useEffect(() => {
     const getNewUsers = async () => {
+      const userObject = JSON.parse(localStorage.getItem("user"));
+      console.log(userObject)
       try {
         const res = await axios.get("http://localhost:8800/api/users?new=true", {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYzJmYjU4YjhhZTBjZDJjNjE4Yzc0OCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0MDYwNDMwOSwiZXhwIjoxNjQxMDM2MzA5fQ.9ulVFSXWh_VqTOjY7c4nt2dI8Nj49_Q-x4IFDc7vwR8",
+              "Bearer " + userObject.accessToken,
           },
         });
         setNewUsers(res.data);

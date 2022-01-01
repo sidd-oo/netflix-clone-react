@@ -12,7 +12,7 @@ const ProductList = () => {
 
   useEffect(()=>{
     getMovies(dispatch)
-  },[])
+  },[dispatch]);
 
 
   const handleDelete = (id) => {
