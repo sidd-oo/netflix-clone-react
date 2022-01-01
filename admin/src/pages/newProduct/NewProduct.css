@@ -1,9 +1,17 @@
   .newProduct {
     flex: 4;
   }
+
+  .addProductTitle{
+    margin-left: 30px;
+  }
   
  .addProductForm {
     margin-top: 10px;
+    margin-left: 30px;
+    display: flex;
+    flex-wrap: wrap;
+
   }
   
   .addProductItem {
@@ -11,6 +19,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
+    padding: 20px;
   }
   
   .addProductItem > label {
@@ -36,4 +45,8 @@
     color: white;
     font-weight: 600;
     cursor: pointer;
+    height: 30px;
+    align-self: center;
   }
+
+ 
