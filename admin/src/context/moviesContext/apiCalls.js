@@ -4,13 +4,15 @@ import axios from 'axios';
 //Fetch all movies
 export const getMovies = async (dispatch) => {
   dispatch(getMoviesStart());
+  const userObject = JSON.parse(localStorage.getItem("user"));
   try {
     const res = await axios.get("http://localhost:8800/api/movies/", {
       headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user").accessToken),
+        token: "Bearer " + userObject.accessToken,
       },
     });
-    dispatch(getMoviesSuccess(res.data.movies));
+    console.log(res)
+    dispatch(getMoviesSuccess(res.data));
   } catch (error) {
     dispatch(getMoviesFailure());
   }

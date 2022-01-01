@@ -12,9 +12,8 @@ const ProductList = () => {
 
   useEffect(()=>{
     getMovies(dispatch)
-  },[dispatch])
+  },[])
 
-  console.log(movies);
 
   const handleDelete = (id) => {
     deleteMovie(id, dispatch);

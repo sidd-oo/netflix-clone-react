@@ -24,7 +24,7 @@ const WidgetSm = () => {
   }, []);
   return (
     <div className="widgetSm">
-      <sapn className="widgetSmTitle">New Join Members</sapn>
+      <span className="widgetSmTitle">New Join Members</span>
       <div className="widgetSmList">
         {newUsers.map((user, i) => (
           <li className="widgetSmListItem" key = {i}>
