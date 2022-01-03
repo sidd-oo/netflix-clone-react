@@ -36,10 +36,11 @@ export const deleteMovie = async (id, dispatch) => {
 //create Movie
 export const createMovie = async (movie, dispatch) => {
   dispatch(createMovieStart());
+  const userObject = JSON.parse(localStorage.getItem("user"));
   try {
    const res = await axios.post("http://localhost:8800/api/movies/", movie,  {
       headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user").accessToken),
+        token: "Bearer " + userObject.accessToken,
       },
     });
     dispatch(createMovieSuccess(res.data));
