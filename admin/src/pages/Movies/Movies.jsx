@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./Movies.css";
 import { DataGrid } from "@mui/x-data-grid";
 import { DeleteOutline } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { MovieContext } from "../../context/moviesContext/MoviesContext";
 import { deleteMovie, getMovies } from "../../context/moviesContext/apiCalls";
 import { useEffect } from "react";
@@ -45,8 +45,7 @@ const Movies = () => {
       renderCell: (params) => {
         return (
           <>
-            {console.log(params.row)}
-            <Link to={{pathname:"/movie/" + params.row._id, state:`${params.row}`}}>
+            <Link to={{pathname:"/movie/" + params.row._id}} state={{movie: params.row}}>
               <button className="moviesEdit"> Edit </button>
             </Link>
             <DeleteOutline

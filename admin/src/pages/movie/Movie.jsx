@@ -5,7 +5,7 @@ import { Publish } from "@mui/icons-material";
 
 const Movie = () => {
   const location = useLocation();
-  const movie = location.movie;
+  const movie = location.state.movie;
   console.log(location);
   console.log(movie);
   return (
@@ -20,7 +20,7 @@ const Movie = () => {
         <div className="movieTopRight">
           <div className="movieInfoTop">
             <img
-              // src={movie.img}
+              src={movie.img}
               alt=""
               className="movieInfoImg"
             />
