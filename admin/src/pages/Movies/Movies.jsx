@@ -26,8 +26,10 @@ const Movies = () => {
       width: 200,
       renderCell: (params) => {
         return (
-          <div className="moviesItem">
-            <img src={params.row.image} alt="" className="moviesImg" />
+          <div className="moviesItem">{
+            console.log(params.row.img)
+          }
+            <img src={params.row.img} alt="" className="moviesImg" />
             {params.row.title}
           </div>
         );

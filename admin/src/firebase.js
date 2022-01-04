@@ -10,7 +10,6 @@ const firebaseConfig = {
   measurementId: "G-GPZT9WGRQ1",
 };
 
-console.log(firebaseConfig.apiKey)
 firebase.initializeApp(firebaseConfig);
 const storage = firebase.storage();
 

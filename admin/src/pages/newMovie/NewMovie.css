@@ -1,20 +1,19 @@
-  .newProduct {
+  .newMovie {
     flex: 4;
   }
 
-  .addProductTitle{
+  .addMovieTitle{
     margin-left: 30px;
   }
   
- .addProductForm {
+ .addMovieForm {
     margin-top: 10px;
     margin-left: 30px;
     display: flex;
     flex-wrap: wrap;
-
   }
   
-  .addProductItem {
+  .addMovieItem {
     width: 250px;
     display: flex;
     flex-direction: column;
@@ -22,21 +21,21 @@
     padding: 20px;
   }
   
-  .addProductItem > label {
+  .addMovieItem > label {
     color: gray;
     font-weight: 600;
     margin-bottom: 10px;
   }
   
-  .addProductItem > input {
+  .addMovieItem > input {
     padding: 10px;
   }
   
-  .addProductItem > select {
+  .addMovieItem > select {
     padding: 10px;
   }
   
-  .addProductButton {
+  .addMovieButton {
     margin-top: 10px;
     padding: 7px 10px;
     border: none;
@@ -48,5 +47,3 @@
     height: 30px;
     align-self: center;
   }
-
- 

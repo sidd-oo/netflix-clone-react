@@ -13,8 +13,8 @@ import "./App.css";
 import NewUser from "./pages/newUser/NewUser";
 import Movies from "./pages/Movies/Movies";
 import Movie from "./pages/movie/Movie";
-import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
+import NewMovie from "./pages/newMovie/NewMovie";
 import { AuthContext } from "./context/authContext/AuthContext";
 import { useContext } from "react";
 
@@ -38,7 +38,7 @@ function App() {
               <Route path="/newUser" element={<NewUser />} />
               <Route path="/movies" element={<Movies />} />
               <Route path="/movie/:movieId" element={<Movie />} />
-              <Route path="/newProduct" element={<NewProduct />} />
+              <Route path="/newMovie" element={<NewMovie />} />
             </>
           )}
         </Routes>
