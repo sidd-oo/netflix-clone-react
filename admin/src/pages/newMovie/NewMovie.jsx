@@ -4,6 +4,7 @@ import { createMovie } from "../../context/moviesContext/apiCalls";
 import { MovieContext } from "../../context/moviesContext/MoviesContext";
 import storage from "../../firebase";
 import "./NewMovie.css";
+import {  useNavigate  } from "react-router-dom";
 
 const NewMovie = () => {
   const [movie, setMovie] = useState(null);
@@ -13,6 +14,7 @@ const NewMovie = () => {
   const [trailer, setTrailer] = useState(null);
   const [video, setVideo] = useState(null);
   const [uploaded, setUploaded] = useState(0);
+  const navigate = useNavigate();
 
   const { dispatch } = useContext(MovieContext);
 
@@ -48,8 +50,6 @@ const NewMovie = () => {
     });
   };
 
-  console.log(movie);
-
   const handleUpload = (e) => {
     e.preventDefault();
     uploadFiles([
@@ -64,6 +64,7 @@ const NewMovie = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     createMovie(movie, dispatch);
+    navigate('/movies');
   };
 
   return (
