@@ -6,8 +6,7 @@ import { Publish } from "@mui/icons-material";
 const Movie = () => {
   const location = useLocation();
   const movie = location.state.movie;
-  console.log(location);
-  console.log(movie);
+  
   return (
     <div className="movie">
       <div className="movieTitleContainer">

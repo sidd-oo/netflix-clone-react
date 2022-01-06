@@ -11,12 +11,15 @@ import {
 import User from "./pages/user/User";
 import "./App.css";
 import NewUser from "./pages/newUser/NewUser";
-import Movies from "./pages/Movies/Movies";
+import Movies from "./pages/movies/Movies";
 import Movie from "./pages/movie/Movie";
 import Login from "./pages/login/Login";
 import NewMovie from "./pages/newMovie/NewMovie";
 import { AuthContext } from "./context/authContext/AuthContext";
 import { useContext } from "react";
+import MovieLists from './pages/movieLists/MovieLists'
+import List from "./pages/list/List";
+import NewList from "./pages/newList/NewList";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -39,6 +42,9 @@ function App() {
               <Route path="/movies" element={<Movies />} />
               <Route path="/movie/:movieId" element={<Movie />} />
               <Route path="/newMovie" element={<NewMovie />} />
+              <Route path="/lists" element={<MovieLists />} />
+              <Route path="/list/:listId" element={<List />} />
+              <Route path="/newlist" element={<NewList />} />
             </>
           )}
         </Routes>
