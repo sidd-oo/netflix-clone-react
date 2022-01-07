@@ -9,13 +9,13 @@ const Featured = ({ type }) => {
 
   useEffect(() => {
     const getRandomContent = async () => {
+      const userObject = JSON.parse(localStorage.getItem("user"));
       try {
         const res = await axios.get(
           `http://localhost:8800/api/movies/random?type=${type}`,
           {
             headers: {
-              token:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYzJmYjU4YjhhZTBjZDJjNjE4Yzc0OCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDAxNjg1NDUsImV4cCI6MTY0MDYwMDU0NX0.LfHGvOB_tLad_UGPoYci1foklfvHkHMNHM2TT-K140s",
+              token: "Bearer " + userObject.accessToken,
             },
           }
         );
