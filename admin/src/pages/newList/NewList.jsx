@@ -21,6 +21,7 @@ const NewList = () => {
   const handleChange = (e) => {
     const value = e.target.value;
     setList({ ...list, [e.target.name]: value });
+    console.log(list)
   };
 
   const handleSelect = (e) => {
@@ -58,7 +59,7 @@ const NewList = () => {
             <select name="type" onChange={handleChange}>
               <option>Type</option>
               <option value="movie">Movie</option>
-              <option value="series">Series</option>
+              <option value="serie">Series</option>
             </select>
           </div>
         </div>
