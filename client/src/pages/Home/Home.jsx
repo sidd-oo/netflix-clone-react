@@ -5,13 +5,19 @@ import List from "../../components/list/List";
 import "./Home.scss";
 import "../../App.scss";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const Home = ({ type }) => {
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
+  const location = useLocation();
+
 
   useEffect(() => {
     const getRandomLists = async () => {
+      if(location.pathname === "/"){
+        setGenre(null);
+      }
       try {
         const userObject = JSON.parse(localStorage.getItem("user"));
         const res = await axios.get(
