@@ -13,7 +13,7 @@ const NewMovie = () => {
   const [imgSm, setImgSm] = useState(null);
   const [trailer, setTrailer] = useState(null);
   const [video, setVideo] = useState(null);
-  const [uploaded, setUploaded] = useState(0);
+  const [uploaded, setUploaded] = useState(0); 
   const navigate = useNavigate();
 
   const { dispatch } = useContext(MovieContext);
@@ -21,6 +21,7 @@ const NewMovie = () => {
   const handleChange = (e) => {
     const value = e.target.value;
     setMovie({ ...movie, [e.target.name]: value });
+    console.log(movie);
   };
 
   const uploadFiles = (items) => {

@@ -55,11 +55,12 @@ const ListItem = ({ item, index }) => {
                   <ThumbDownRoundedIcon className="icon" />
                 </div>
                 <div className="itemInfoTop">
+                  {console.log(movie)}
                   <span>{movie.duration}</span>
-                  <span className="limit">{movie.limit}</span>
+                  <span className="limit">{movie.limit}+</span>
                   <span>{movie.year}</span>
                 </div>
-                <div className="desc">{movie.desc}</div>
+                <div className="desc">{movie.desc.substring(0,140)}...</div>
                 <div className="genre">{movie.genre}</div>
               </div>
             </>
