@@ -19,7 +19,7 @@ const Featured = ({ type }) => {
             },
           }
         );
-        setContent((content) => {
+        setContent(content => {
           return (content = res.data[0]);
         });
       } catch (err) {
@@ -33,7 +33,7 @@ const Featured = ({ type }) => {
     <div className="featured">
       {type && (
         <div className="category">
-          <span>{type === "movies" ? "Movies" : "Series"}</span>
+          <span>{type === "movie" ? "Movies" : "Series"}</span>
           <select name="genre" id="genre">
             <option>Genre</option>
             <option value="adventure">Adventure</option>

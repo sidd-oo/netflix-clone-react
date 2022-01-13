@@ -14,7 +14,6 @@ const List = ({ list }) => {
     setIsMoved(true);
 
     let distance = listRef.current.getBoundingClientRect().x - 50;
-    console.log(distance);
 
     if (direction === "left" && slideNumber > 0) {
       setSlideNumber(slideNumber - 1);
@@ -36,9 +35,7 @@ const List = ({ list }) => {
           style={{ display: !(isMoved && slideNumber !== 0) && "none" }}
         />
         <div className="container" ref={listRef}>
-          {console.log(list)}
           {list.content.map((item, i) => {
-            {console.log(item)}
             return <ListItem item={item} index={i} key={i} />;
           })}
         </div>

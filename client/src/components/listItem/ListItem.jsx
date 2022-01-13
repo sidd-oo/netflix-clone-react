@@ -42,7 +42,6 @@ const ListItem = ({ item, index }) => {
           onMouseLeave={() => setIsHovered(false)}
           style={{ left: isHovered && index * 225 + index * 2.5 }}
         >
-          {console.log(movie)}
           <img src={movie.img} alt="" />
 
           {isHovered && (

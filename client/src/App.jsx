@@ -32,8 +32,8 @@ const App = () => {
           ></Route>
           {user && (
             <>
-              <Route path="/movies" element={<Home type="movies" />} />
-              <Route path="/series" element={<Home type="series" />} />
+              <Route path="/movies" element={<Home type="movie" />} />
+              <Route path="/series" element={<Home type="serie" />} />
               <Route path="/watch" element={<Watch />} />
             </>
           )}
