@@ -3,6 +3,7 @@ import "./Featured.scss";
 import PlayCircleFilledWhiteOutlinedIcon from "@mui/icons-material/PlayCircleFilledWhiteOutlined";
 import { InfoOutlined } from "@mui/icons-material";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Featured = ({ type, setGenre }) => {
   const [content, setContent] = useState({});
@@ -61,10 +62,12 @@ const Featured = ({ type, setGenre }) => {
         <img src={content.imgTitle} alt="" />
         <span className="desc">{content.desc}</span>
         <div className="buttons">
-          <button className="play">
-            <PlayCircleFilledWhiteOutlinedIcon />
-            <span> Play </span>
-          </button>
+          <Link to="/watch" state={content}>
+            <button className="play">
+              <PlayCircleFilledWhiteOutlinedIcon />
+              <span> Play </span>
+            </button>
+          </Link>
           <button className="more">
             <InfoOutlined />
             <span> Info </span>
