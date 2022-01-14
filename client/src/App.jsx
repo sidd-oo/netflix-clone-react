@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -9,12 +9,12 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Home from "./pages/Home/Home";
 import Watch from "./pages/watch/Watch";
-import { AuthContextProvider } from "./context/authContext/AuthContext";
+import { AuthContext} from "./context/authContext/AuthContext";
 
 const App = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const {user} = useContext(AuthContext);
+  console.log(user, "redernder");
   return (
-    <AuthContextProvider>
       <Router>
         <Routes>
           <Route
@@ -39,7 +39,6 @@ const App = () => {
           )}
         </Routes>
       </Router>
-    </AuthContextProvider>
   );
 };
 

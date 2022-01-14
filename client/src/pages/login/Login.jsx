@@ -3,14 +3,11 @@ import { useContext } from "react";
 import "./Login.scss";
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { login } from "../../context/authContext/apiCalls";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const navigate = useNavigate();
-
   const { dispatch } = useContext(AuthContext);
 
   const handleLogin = (e) => {
