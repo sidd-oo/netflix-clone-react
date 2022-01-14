@@ -1,19 +1,33 @@
+import axios from "axios";
 import React, { useState, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Register.scss";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const navigate = useNavigate();
 
   const emailRef = useRef();
-  const passwordRef = useRef();
 
   const handleStart = () => {
     setEmail(emailRef.current.value);
   };
 
-  const handleFinish = () => {
-    setPassword(passwordRef.current.value);
+  const handleFinish = async (e) => {
+    e.preventDefault();
+    console.log(email, username, password);
+    try {
+      await axios.post("http://localhost:8800/api/auth/register", {
+        email,
+        username,
+        password,
+      });
+      navigate("/login");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -25,7 +39,9 @@ const Register = () => {
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
             alt=""
           />
-          <button className="loginButton">Sign In</button>
+          <Link to="/login">
+            <button className="loginButton">Sign In</button>
+          </Link>
         </div>
       </div>
       <div className="container">
@@ -43,7 +59,16 @@ const Register = () => {
           </div>
         ) : (
           <form className="input">
-            <input type="password" placeholder="Password" ref={passwordRef} />
+            <input
+              type="username"
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <button className="registerButton" onClick={handleFinish}>
               Start
             </button>

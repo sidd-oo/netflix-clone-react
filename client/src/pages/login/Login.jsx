@@ -3,11 +3,12 @@ import { useContext } from "react";
 import "./Login.scss";
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { login } from "../../context/authContext/apiCalls";
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
 
   const { dispatch } = useContext(AuthContext);
@@ -15,7 +16,6 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     login({ email, password }, dispatch);
-    navigate("/");
   };
 
   return (
@@ -42,13 +42,14 @@ const Login = () => {
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Link to = "/movies"  onClick={handleLogin}>
-          <button className="loginButton">
+          <button className="loginButton" onClick={handleLogin}>
             Sign In
           </button>
-          </Link>
           <span>
-            New to Netflix? <b>Sign up now.</b>
+            New to Netflix ? 
+            <Link to ="/register">
+            <b> Sign up now.</b>
+            </Link>
           </span>
           <small>
             This page is protected by Google reCAPTCHA to ensure you're not a

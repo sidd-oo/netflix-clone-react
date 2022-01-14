@@ -8,9 +8,11 @@
     ),
     url("https://cdn.hipwallpaper.com/i/98/21/dUyCkp.jpg");
   background-size: cover;
-  position: relative;
+
 
   .top {
+    z-index:99;
+    position: relative;
     .wrapper {
       padding: 20px 50px;
       display: flex;
@@ -29,7 +31,7 @@
         padding: 5px 15px;
         font-size: 16px;
         font-weight: 500;
-        cursor: pointer;
+        cursor: pointer ;
       }
     }
   }
