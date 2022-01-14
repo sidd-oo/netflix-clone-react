@@ -10,10 +10,11 @@ import Register from "./pages/register/Register";
 import Home from "./pages/Home/Home";
 import Watch from "./pages/watch/Watch";
 import { AuthContext} from "./context/authContext/AuthContext";
+import NewAndPopular from "./pages/NewAndPopular/NewAndPopular";
 
 const App = () => {
   const {user} = useContext(AuthContext);
-  console.log(user, "redernder");
+
   return (
       <Router>
         <Routes>
@@ -35,6 +36,7 @@ const App = () => {
               <Route path="/movies" element={<Home type="movie" />} />
               <Route path="/series" element={<Home type="serie" />} />
               <Route path="/watch" element={<Watch />} />
+              <Route path="/newPopular" element={<NewAndPopular/>}/>
             </>
           )}
         </Routes>

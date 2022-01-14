@@ -62,7 +62,7 @@ const Featured = ({ type, setGenre }) => {
         <img src={content.imgTitle} alt="" />
         <span className="desc">{content.desc}</span>
         <div className="buttons">
-          <Link to="/watch" state={content}>
+          <Link to="/watch" state={content} className="link">
             <button className="play">
               <PlayCircleFilledWhiteOutlinedIcon />
               <span> Play </span>
