@@ -31,7 +31,8 @@ const NewMovie = () => {
       uploadTask.on(
         "state_changes",
         (snapshot) => {
-          progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log("File upload "+progress+"% done");
         },
         (err) => {
           console.log(err);
