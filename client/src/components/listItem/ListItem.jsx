@@ -59,7 +59,7 @@ const ListItem = ({ item, index }) => {
                   <span className="limit">{movie.limit}+</span>
                   <span>{movie.year}</span>
                 </div>
-                <div className="desc">{movie.desc.substring(0,140)}...</div>
+                <div className="desc">{movie.desc.substring(0,135)}...</div>
                 <div className="genre">{movie.genre}</div>
               </div>
             </>
