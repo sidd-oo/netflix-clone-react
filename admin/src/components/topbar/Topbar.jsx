@@ -1,11 +1,13 @@
-import React from "react";
-import "./Topbar.css";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import LanguageIcon from "@mui/icons-material/Language";
+import NotificationsIcon from "@mui/icons-material/Notifications";
 import SettingsIcon from "@mui/icons-material/Settings";
-// import { NotificationsIcon, LanguageIcon, SettingsIcon} from '@mui/icons-material';
+import React, { useContext } from "react";
+import { AuthContext } from "../../../../admin/src/context/authContext/AuthContext";
+import { logout } from "../../../../admin/src/context/authContext/AuthActions";
+import "./Topbar.css";
 
 const Topbar = () => {
+  const { dispatch } = useContext(AuthContext);
   return (
     <div className="topbar">
       <div className="topbarWrapper">
@@ -21,10 +23,20 @@ const Topbar = () => {
             <LanguageIcon />
             <span className="topIconBadge">2</span>
           </div>
-          <div className="topbarIconContainer">
+          <div className="topbarIconContainer profile">
             <SettingsIcon />
+            <div className="options">
+              <span>Netflix</span>
+              <span
+                onClick={() => {
+                  dispatch(logout());
+                }}
+              >
+                Logout
+              </span>
+            </div>
           </div>
-          <div className="topbarIconContainer">
+          <div className="topbarIconContainer ">
             <img
               src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
               alt=""
