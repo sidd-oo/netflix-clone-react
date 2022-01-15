@@ -32,7 +32,7 @@ const Home = () => {
     const getStats = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8800/api/users/stats",
+          `${process.env.REACT_APP_BACKEND_PROXY}/api/users/stats`,
           {
             headers: {
               token:

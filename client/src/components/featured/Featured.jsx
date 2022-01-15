@@ -13,7 +13,7 @@ const Featured = ({ type, setGenre }) => {
       const userObject = JSON.parse(localStorage.getItem("user"));
       try {
         const res = await axios.get(
-          `http://localhost:8800/api/movies/random?type=${type}`,
+          `${process.env.REACT_APP_BACKEND_PROXY}/api/movies/random?type=${type}`,
           {
             headers: {
               token: "Bearer " + userObject.accessToken,

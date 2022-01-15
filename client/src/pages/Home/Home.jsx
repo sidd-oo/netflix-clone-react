@@ -21,7 +21,7 @@ const Home = ({ type }) => {
       try {
         const userObject = JSON.parse(localStorage.getItem("user"));
         const res = await axios.get(
-          `http://localhost:8800/api/lists${type ? "?type=" + type : ""}${
+          `${process.env.REACT_APP_BACKEND_PROXY}/api/lists${type ? "?type=" + type : ""}${
             genre ? "&genre=" + genre : ""
           }`,
           {

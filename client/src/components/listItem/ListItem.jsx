@@ -16,7 +16,7 @@ const ListItem = ({ item, index }) => {
       const userObject = JSON.parse(localStorage.getItem("user"));
       try {
         const res = await axios.get(
-          `http://localhost:8800/api/movies/find/${item}`,
+          `${process.env.REACT_APP_BACKEND_PROXY}/api/movies/find/${item}`,
           {
             headers: {
               token: "Bearer " + userObject.accessToken,

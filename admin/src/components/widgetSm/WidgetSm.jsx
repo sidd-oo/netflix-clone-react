@@ -12,7 +12,7 @@ const WidgetSm = () => {
       const userObject = JSON.parse(localStorage.getItem("user"));
       console.log(userObject)
       try {
-        const res = await axios.get("http://localhost:8800/api/users?new=true", {
+        const res = await axios.get(`${process.env.REACT_APP_BACKEND_PROXY}/api/users?new=true`, {
           headers: {
             token:
               "Bearer " + userObject.accessToken,
