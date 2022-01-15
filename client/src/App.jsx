@@ -11,6 +11,7 @@ import Home from "./pages/Home/Home";
 import Watch from "./pages/watch/Watch";
 import { AuthContext} from "./context/authContext/AuthContext";
 import NewAndPopular from "./pages/NewAndPopular/NewAndPopular";
+import MyList from "./pages/MyList/MyList";
 
 const App = () => {
   const {user} = useContext(AuthContext);
@@ -37,6 +38,7 @@ const App = () => {
               <Route path="/series" element={<Home type="serie" />} />
               <Route path="/watch" element={<Watch />} />
               <Route path="/newPopular" element={<NewAndPopular/>}/>
+              <Route path="/myList" element={<MyList/>}/>
             </>
           )}
         </Routes>

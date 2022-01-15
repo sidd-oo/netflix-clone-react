@@ -20,10 +20,10 @@ const Navbar = () => {
       <div className="container">
         <div className="left">
           <Link to="/" className="link">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
-            alt="Netflix logo"
-          />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
+              alt="Netflix logo"
+            />
           </Link>
           <Link to="/" className="link">
             <span>Homepage</span>
@@ -37,7 +37,9 @@ const Navbar = () => {
           <Link to="/newPopular" className="link">
             <span>New and Popular</span>
           </Link>
-          <span>My List</span>
+          <Link to="/myList" className="link">
+            <span>My List</span>
+          </Link>
         </div>
         <div className="right">
           <Search className="icon" />
