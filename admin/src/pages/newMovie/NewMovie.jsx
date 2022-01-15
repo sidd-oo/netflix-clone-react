@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { useState } from "react";
+import React, { useContext, useState } from "react";
 import { createMovie } from "../../context/moviesContext/apiCalls";
 import { MovieContext } from "../../context/moviesContext/MoviesContext";
 import storage from "../../firebase";
 import "./NewMovie.css";
-import {  useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { LinearProgress } from "@mui/material";
 
 const NewMovie = () => {
   const [movie, setMovie] = useState(null);
@@ -13,7 +13,7 @@ const NewMovie = () => {
   const [imgSm, setImgSm] = useState(null);
   const [trailer, setTrailer] = useState(null);
   const [video, setVideo] = useState(null);
-  const [uploaded, setUploaded] = useState(0); 
+  const [uploaded, setUploaded] = useState(0);
   const navigate = useNavigate();
 
   const { dispatch } = useContext(MovieContext);
@@ -26,15 +26,12 @@ const NewMovie = () => {
 
   const uploadFiles = (items) => {
     items.forEach((item) => {
-      const fileName = new Date().getTime() + item.label + item.file.name;
-      const storageRef = storage.ref(`items/${fileName}`);
+      const storageRef = storage.ref(`items/${item.file.name}`);
       const uploadTask = storageRef.put(item.file);
       uploadTask.on(
         "state_changes",
         (snapshot) => {
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
+          progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         },
         (err) => {
           console.log(err);
@@ -65,7 +62,7 @@ const NewMovie = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     createMovie(movie, dispatch);
-    navigate('/movies');
+    navigate("/movies");
   };
 
   return (
@@ -181,9 +178,18 @@ const NewMovie = () => {
             Create
           </button>
         ) : (
-          <button className="addMovieButton" onClick={handleUpload}>
-            Upload
-          </button>
+          <>
+            <button className="addMovieButton" onClick={handleUpload}>
+              Upload
+            </button>
+            {uploaded >= 1 && uploaded <= 5 ? (
+              <div>
+                <LinearProgress value={10} style={{ width: "400px" }} />
+              </div>
+            ) : (
+              <div></div>
+            )}
+          </>
         )}
       </form>
     </div>
