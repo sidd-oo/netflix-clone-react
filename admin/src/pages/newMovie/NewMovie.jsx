@@ -26,7 +26,8 @@ const NewMovie = () => {
 
   const uploadFiles = (items) => {
     items.forEach((item) => {
-      const storageRef = storage.ref(`items/${item.file.name}`);
+      const fileName = new Date().getTime() + item.file.name;
+      const storageRef = storage.ref(`items/$${fileName}`);
       const uploadTask = storageRef.put(item.file);
       uploadTask.on(
         "state_changes",
