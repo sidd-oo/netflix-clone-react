@@ -10,6 +10,7 @@ import { useEffect } from "react";
 const Movies = () => {
   const { movies, dispatch } = useContext(MovieContext);
 
+  console.log(movies);
   useEffect(() => {
     getMovies(dispatch);
   }, [dispatch]);

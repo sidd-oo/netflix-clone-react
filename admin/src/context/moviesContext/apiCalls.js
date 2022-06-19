@@ -1,4 +1,4 @@
-import { createMovieFailure, createMovieStart, createMovieSuccess, deleteMovieFailure, deleteMovieStart, deleteMovieSuccess, getMoviesFailure, getMoviesStart, getMoviesSuccess } from "./MoviesAction";
+import { createMovieFailure, createMovieStart, createMovieSuccess, deleteMovieFailure, deleteMovieStart, deleteMovieSuccess, getMoviesFailure, getMoviesStart, getMoviesSuccess, updateMovieFailure, updateMovieStart, updateMovieSuccess } from "./MoviesAction";
 import axios from 'axios';
 
 //Fetch all movies
@@ -11,7 +11,6 @@ export const getMovies = async (dispatch) => {
         token: "Bearer " + userObject.accessToken,
       },
     });
-    console.log(res)
     dispatch(getMoviesSuccess(res.data));
   } catch (error) {
     dispatch(getMoviesFailure());
@@ -23,7 +22,7 @@ export const deleteMovie = async (id, dispatch) => {
   dispatch(deleteMovieStart());
   const userObject = JSON.parse(localStorage.getItem("user"));
   try {
-   await axios.delete(`${process.env.REACT_APP_BACKEND_PROXY}/api/movies/${id}`, {
+    await axios.delete(`${process.env.REACT_APP_BACKEND_PROXY}/api/movies/${id}`, {
       headers: {
         token: "Bearer " + userObject.accessToken,
       },
@@ -39,7 +38,7 @@ export const createMovie = async (movie, dispatch) => {
   dispatch(createMovieStart());
   const userObject = JSON.parse(localStorage.getItem("user"));
   try {
-   const res = await axios.post(`${process.env.REACT_APP_BACKEND_PROXY}/api/movies/`, movie,  {
+    const res = await axios.post(`${process.env.REACT_APP_BACKEND_PROXY}/api/movies/`, movie, {
       headers: {
         token: "Bearer " + userObject.accessToken,
       },
@@ -47,5 +46,25 @@ export const createMovie = async (movie, dispatch) => {
     dispatch(createMovieSuccess(res.data));
   } catch (error) {
     dispatch(createMovieFailure());
+  }
+};
+
+
+//update Movie
+export const updateMovie = async (updatedState, dispatch) => {
+  dispatch(updateMovieStart());
+  const userObject = JSON.parse(localStorage.getItem("user"));
+  try {
+    const res = await axios.put(`${process.env.REACT_APP_BACKEND_PROXY}/api/movies/${updatedState.movieId}`,
+      { ...updatedState },
+      {
+        headers: {
+          token: "Bearer " + userObject.accessToken,
+        },
+      });
+    console.log(res.data, "apicall");
+    dispatch(updateMovieSuccess(res.data));
+  } catch (error) {
+    dispatch(updateMovieFailure());
   }
 };

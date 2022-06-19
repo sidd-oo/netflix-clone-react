@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const Featured = ({ type, setGenre }) => {
   const [content, setContent] = useState({});
+  console.log(`Featured: ${content.title}`);
 
   useEffect(() => {
     const getRandomContent = async () => {
