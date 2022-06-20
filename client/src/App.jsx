@@ -34,8 +34,8 @@ const App = () => {
             <Route path="/movies" element={<Home type="movie" />} />
             <Route path="/series" element={<Home type="serie" />} />
             <Route path="/watch" element={<Watch />} />
-            <Route path="/newPopular" element={<NewAndPopular />} />
-            <Route path="/myList" element={<MyList />} />
+            {/* <Route path="/newPopular" element={<NewAndPopular />} />
+            <Route path="/myList" element={<MyList />} /> */}
             <Route path="*"  element={<Navigate to="/" />} />
           </>
         ) : (
@@ -43,8 +43,8 @@ const App = () => {
             <Route path="/movies" element={<Login/>} />
             <Route path="/series" element={<Login/>} />
             <Route path="/watch" element={<Login/>} />
-            <Route path="/newPopular" element={<Login />} />
-            <Route path="/myList" element={<Login />} />
+            {/* <Route path="/newPopular" element={<Login />} />
+            <Route path="/myList" element={<Login />} /> */}
             <Route path="*" exact = {true} element={<Navigate to="/login" />} />
           </>
         )}
