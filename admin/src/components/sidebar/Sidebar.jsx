@@ -2,6 +2,8 @@ import { PlayCircleOutline } from "@mui/icons-material";
 import LineStyleIcon from "@mui/icons-material/LineStyle";
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
+import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
@@ -35,6 +37,18 @@ const Sidebar = () => {
               <li className="sidebarListItem">
                 <LocalMoviesIcon className="sidebarIcon" />
                 Lists
+              </li>
+            </Link>
+            <Link to="/newMovie" className="link"> 
+              <li className="sidebarListItem">
+                <VideoLibraryIcon className="sidebarIcon" />
+                Add Movie
+              </li>
+            </Link>
+            <Link to="/newList" className="link"> 
+              <li className="sidebarListItem">
+                <PlaylistAddIcon className="sidebarIcon" />
+                Add Movie List
               </li>
             </Link>
           </ul>
